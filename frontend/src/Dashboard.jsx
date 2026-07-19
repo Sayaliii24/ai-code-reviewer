@@ -17,7 +17,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/v1/reviews', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/reviews`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -47,7 +47,7 @@ export default function Dashboard() {
     formData.append('file', file);
 
     try {
-      const res = await fetch('http://localhost:8080/api/v1/upload', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
